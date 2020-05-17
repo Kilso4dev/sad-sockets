@@ -4,17 +4,17 @@ EXECUTABLE = "sad_main"
 
 ARGS = ""
 
-clear:
+clean:
 	rm -f -r ./build
 
 
-prepare: clear;
+prepare: clean;
 	mkdir -p build && \
 	cd build && \
 	cmake ..
 
 compile:
-	#[ ! -d "build" ] && make clear && make prepare
+	if [ ! -d "build" ]; then make prepare; fi
 	cd build && \
 	make
 
